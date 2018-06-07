@@ -24,7 +24,7 @@ def loadImage(chemin):
 
 def seuillage(image):
     seuil=21
-    seuil, img = cv2.threshold(image, seuil, 255, cv2.THRESH_BINARY_INV)##+cv2.THRESH_OTSU)
+    seuil, img = cv2.threshold(image, seuil, 255, cv2.THRESH_BINARY_INV)
     plt.imshow(img,cmap = 'gray')
     plt.show()
     return img
@@ -34,23 +34,23 @@ def segmentation(image):
     plt.figure(figsize=(12,4))
     plt.subplot(131)
     plt.imshow(image,cmap='gray') 
-    image = cv2.dilate(image,noyau,1)
+    img = cv2.dilate(image,noyau,1)
     plt.subplot(132)
-    plt.imshow(image,cmap='gray') 
-    image = cv2.erode(image,noyau,1)
+    plt.imshow(img,cmap='gray') 
+    img = cv2.erode(img,noyau,1)
     plt.subplot(133)
-    plt.imshow(image,cmap='gray') 
+    plt.imshow(img,cmap='gray') 
     plt.show()
-    return image
+    return img
 
 def rechercheContour(imageOrigine, imageSegmente):
-    img2,contours, hierarchy = cv2.findContours(img,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+    img2,contours, hierarchy = cv2.findContours(imageSegmente,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
     if hierarchy.any():
         cnt=contours[0]
         rect = cv2.minAreaRect(cnt)
         box = cv2.boxPoints(rect)
         box = np.int0(box)
-        cv2.drawContours(imageOrigine,[box],0,(0,0,255),2)
+        cv2.drawContours(imageOrigine,[box],0,(0,255,0),2)
         plt.imshow(imageOrigine)
         plt.show()
 
