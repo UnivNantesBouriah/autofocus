@@ -45,14 +45,14 @@ def segmentation(image):
 
 def rechercheContour(imageOrigine, imageSegmente):
     img2,contours, hierarchy = cv2.findContours(imageSegmente,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
-    if hierarchy.any():
-        cnt=contours[0]
-        rect = cv2.minAreaRect(cnt)
-        box = cv2.boxPoints(rect)
-        box = np.int0(box)
-        cv2.drawContours(imageOrigine,[box],0,(0,255,0),2)
-        plt.imshow(imageOrigine)
-        plt.show()
+    contours = sorted(contours, key = cv2.contourArea, reverse = True)
+    cnt=contours[0]
+    rect = cv2.minAreaRect(cnt)
+    box = cv2.boxPoints(rect)
+    box = np.int0(box)
+    cv2.drawContours(imageOrigine,[box],0,(0,255,0),2)
+    plt.imshow(imageOrigine)
+    plt.show()
 
 
 if __name__ == "__main__":
