@@ -10,9 +10,8 @@ class CAutofocus():
         self.baryDroit=np.zeros((2,2))
         
     def chercheBary(self,camera):    
-        camera.captureImage()
-        bary=camera.barycentre()
-##        print("Bary :",bary)
+        image = camera.captureImage()
+        bary=camera.barycentre(camera.segmentation(image))
         return bary
 
     def allumeLEDGauche(self,perif):        
