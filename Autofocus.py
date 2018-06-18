@@ -11,7 +11,7 @@ class CAutofocus():
         
     def chercheBary(self,camera):    
         image = camera.captureImage()
-        bary=camera.barycentre(camera.segmentation(image))
+        bary=camera.barycentre(image)
         return bary
 
     def allumeLEDGauche(self,perif):        
@@ -122,10 +122,6 @@ if __name__ == "__main__":
     MonAutofocus.piloteMoteur(MonPerif,1,duree)      ## Montée de DUREE pour faire nouvelle acquisition
     MonAutofocus.baryGauche[1],MonAutofocus.baryDroit[1]=MonAutofocus.acquisitionBary(MaCamera,MonPerif)
     print("BaryG1 = ",MonAutofocus.baryGauche[1],"BaryD1 = ",MonAutofocus.baryDroit[1])
-##    MonAutofocus.baryDroit[0]=[270.023,157.236]
-##    MonAutofocus.baryGauche[0]=[214.187,100.950]
-##    MonAutofocus.baryDroit[1]=[393.72,143.566]
-##    MonAutofocus.baryGauche[1]=[379.761,242.786]
     
     ## Calcul position et temps deplacement
     duree=MonAutofocus.calculDeplacement()
@@ -145,7 +141,7 @@ if __name__ == "__main__":
     MaCamera.deconnexion()
     MonPerif.deconnexion()
 
-
+##Test
 ##Connexion :  192.168.0.103
 ##Connexion :  192.168.0.101
 ##BaryG0 =  [377. 216.] BaryD0 =  [356. 215.]

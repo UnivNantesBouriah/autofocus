@@ -71,27 +71,3 @@ class CCamera():
         ##Renvoi des coordonnées du barycentre
         return ([x,self.resolutionL-y])
             
-
-##MaCamera = CCamera("192.168.0.101",20,30)
-##MaCamera.connexion()
-##MaCamera.captureImage()
-######print(MaCamera.image[2][2])
-##MaCamera.loadImage("PointeurD1.jpg") ##256,286
-######MaCamera.seuillage()
-######print(MaCamera.image[2][2])
-##bary=MaCamera.barycentre()
-##print("PointeurD1 : ",bary)
-##MaCamera.loadImage("PointeurG1.jpg")
-##bary=MaCamera.barycentre()
-##print("PointeurG1 : ",bary)
-##MaCamera.loadImage("PointeurD2.jpg")
-##bary=MaCamera.barycentre()
-##print("PointeurD2 : ",bary)
-##MaCamera.loadImage("PointeurG2.jpg")
-##bary=MaCamera.barycentre()
-##print("PointeurG2 : ",bary)
-##MaCamera.deconnexion()
-##PointeurD1 :  [298, 186]
-##PointeurG1 :  [171, 191]
-##PointeurD2 :  [253, 129]
-##PointeurG2 :  [203, 128]

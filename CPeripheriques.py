@@ -30,17 +30,3 @@ class CPeripheriques():
             time.sleep(duree)
         else:
             time.sleep(-duree)
-
-MonPerif = CPeripheriques("192.168.0.102")
-MonPerif.connexion()
-##MonPerif.SwitchLED(1,0)
-##MonPerif.SwitchLED(1,1)
-##time.sleep(5)
-##MonPerif.SwitchLED(0,0)
-##MonPerif.SwitchLED(0,1)
-
-MonPerif.PiloteMoteur(1,1.246) ## vert rouge et jaune noir : 0 descente 1 montée
-time.sleep(1)
-######MonPerif.PiloteMoteur(1,2)
-######time.sleep(2)
-MonPerif.deconnexion()
